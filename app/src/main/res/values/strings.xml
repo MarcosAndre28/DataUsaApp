@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">DataUsaApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Cidade">Cidade</string>
+    <string name="Numero">Número</string>
+    <string name="editar_dados">Editar dados do</string>
+</resources>
