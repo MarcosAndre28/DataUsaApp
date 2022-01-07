@@ -4,7 +4,7 @@ package com.example.datausaapp.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.datausaapp.R
-import com.example.datausaapp.edit.StatesFragment
+import com.example.datausaapp.states.StatesFragment
 
 class MainActivity : AppCompatActivity() {
 

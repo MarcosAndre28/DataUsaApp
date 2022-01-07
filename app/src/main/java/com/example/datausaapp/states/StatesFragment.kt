@@ -1,10 +1,14 @@
-package com.example.datausaapp.edit
+package com.example.datausaapp.states
 
 import android.os.Bundle
+import android.text.InputType
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
+import androidx.core.view.get
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,14 +17,16 @@ import com.example.datausaapp.R
 import com.example.datausaapp.data.api.ApiClientInstance
 import com.example.datausaapp.data.repository.StateRepository
 import com.example.datausaapp.view.FragmentStateViewModel
+import kotlinx.android.synthetic.main.fragment_city.*
 
 
-class StatesFragment : Fragment() {
+class StatesFragment : Fragment(), SearchView.OnQueryTextListener {
 
     private lateinit var viewModel: FragmentStateViewModel.RecipeDetailsViewModel
     private var getApiInstance = ApiClientInstance.retrofitInstance
     private var repository = StateRepository(getApiInstance)
-   // fazendo a transição de um fragmento para o outro
+
+
     private var cityAdapter = StatesAdapter {
         activity?.supportFragmentManager?.beginTransaction()
             ?.replace(R.id.container, EditStatesFragment(it) {
@@ -31,7 +37,6 @@ class StatesFragment : Fragment() {
     }
     lateinit var ctCv: RecyclerView
 
-    //Chamando o Id da recycler
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         ctCv = view.findViewById(R.id.rv_citys)
@@ -40,7 +45,6 @@ class StatesFragment : Fragment() {
         setRecyclerView()
 
 
-        //Observando a Activity
         viewModel.states.observe(requireActivity()) {
             cityAdapter.setupRecycleView(it)
         }
@@ -55,7 +59,7 @@ class StatesFragment : Fragment() {
 
 
     }
-    //Chamdno o repository na viewModel
+
     private fun setupViewModel() {
         viewModel = ViewModelProvider(
             this,
@@ -64,10 +68,16 @@ class StatesFragment : Fragment() {
             )
         ).get(FragmentStateViewModel.RecipeDetailsViewModel::class.java)
     }
-    //Setando a ReclyclerView e p dividerItem
+
     private fun setRecyclerView() {
 
         val layoutManager = LinearLayoutManager(context)
+        val search = activity?.findViewById<SearchView>(R.id.search_textFilter)
+        search?.setInputType(InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_CAP_SENTENCES)
+        search?.setOnQueryTextListener(this)
+
+
+
 
         ctCv.layoutManager = layoutManager
         ctCv.adapter = cityAdapter
@@ -79,4 +89,18 @@ class StatesFragment : Fragment() {
             ctCv.addItemDecoration(this)
         }
     }
+
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        cityAdapter.filter.filter(query)
+
+        return false
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+        cityAdapter.filter.filter(newText)
+
+
+        return false
+    }
+
 }

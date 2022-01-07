@@ -18,9 +18,10 @@ class FragmentStateViewModel() {
         val states: LiveData<List<State>>
             get() = _states
 
-        // Iniciando
+
         init {
             getStates()
+
         }
 
         private fun getStates() {
@@ -31,7 +32,7 @@ class FragmentStateViewModel() {
                 }
             }
         }
-        // Atualizando o States
+
         fun updateState(state: State) {
             val list = states.value
             list?.find {

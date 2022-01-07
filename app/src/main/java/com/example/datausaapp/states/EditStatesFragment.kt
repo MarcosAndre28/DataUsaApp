@@ -1,4 +1,4 @@
-package com.example.datausaapp.edit
+package com.example.datausaapp.states
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -35,7 +35,7 @@ class EditStatesFragment(private val state: State, private val onSavedState: (St
         setListeners(view)
         return view
     }
-  //Carregamento dos dados State
+
     private fun loadingStateData(view: View) {
 
         editName = view.textview_nome_state
@@ -46,7 +46,6 @@ class EditStatesFragment(private val state: State, private val onSavedState: (St
         editSlug = view.edit_slug
 
         editName.text = "Editar dados do ${state.state}"
-        //editName.text = "Editar dados do ${state.state}"
         editID.isEnabled = false
         editID.setText(state.stateId)
         editState.setText(state.state)
@@ -55,7 +54,7 @@ class EditStatesFragment(private val state: State, private val onSavedState: (St
         editSlug.setText(state.slugState)
 
     }
-    // Click na lista de States e tratamento da exception
+
     private fun setListeners(view: View) {
 
         view.savedbutton.setOnClickListener {
@@ -85,7 +84,7 @@ class EditStatesFragment(private val state: State, private val onSavedState: (St
 
         }
     }
-    //Criando um novo estado
+
     private fun createNewState(): State {
 
         return state.copy(
@@ -96,7 +95,7 @@ class EditStatesFragment(private val state: State, private val onSavedState: (St
 
         )
     }
-    //Validando os campos
+
     private fun fieldValidate(): Boolean {
         return !(editState.text.isNullOrBlank() || editPopulation.text.isNullOrBlank() ||
                 editSlug.text.isNullOrBlank() || editYear.text.isNullOrBlank())

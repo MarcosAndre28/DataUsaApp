@@ -5,7 +5,7 @@
     android:id="@+id/edit_filter"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".edit.StatesFragment">
+    tools:context=".states.StatesFragment">
 
     <TextView
         android:id="@+id/textView"
@@ -22,21 +22,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/edit_textFilter"
+    <SearchView
+        android:id="@+id/search_textFilter"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/edit_shaper"
-        android:ems="10"
-        android:hint="@string/filter"
         android:inputType="textPersonName"
-        android:paddingStart="8dp"
-        android:textColorHint="@color/hintText"
         app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:ignore="TouchTargetSizeCheck" />
+         />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_citys"
@@ -49,6 +45,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_textFilter" />
+        app:layout_constraintTop_toBottomOf="@+id/search_textFilter" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
