@@ -11,6 +11,7 @@ import android.widget.Toast
 import com.example.datausaapp.R
 import com.example.datausaapp.data.model.State
 import kotlinx.android.synthetic.main.fragment_edit_city.view.*
+
 import java.lang.Exception
 
 class EditStatesFragment(private val state: State, private val onSavedState: (State) -> Unit) :
@@ -37,7 +38,7 @@ class EditStatesFragment(private val state: State, private val onSavedState: (St
   //Carregamento dos dados State
     private fun loadingStateData(view: View) {
 
-        editName = view.textview_Nome_State
+        editName = view.textview_nome_state
         editID = view.edit_ID
         editState = view.edit_State
         editYear = view.edit_Year
@@ -45,6 +46,7 @@ class EditStatesFragment(private val state: State, private val onSavedState: (St
         editSlug = view.edit_slug
 
         editName.text = "Editar dados do ${state.state}"
+        //editName.text = "Editar dados do ${state.state}"
         editID.isEnabled = false
         editID.setText(state.stateId)
         editState.setText(state.state)
