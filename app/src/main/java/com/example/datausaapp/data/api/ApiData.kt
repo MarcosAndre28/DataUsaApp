@@ -3,7 +3,7 @@ package com.example.datausaapp.data.api
 import com.example.datausaapp.data.model.DateStates
 import retrofit2.http.GET
 import retrofit2.http.Query
-
+// Get dos dados da Api
 interface ApiData {
     @GET("data")
     suspend fun getStates(

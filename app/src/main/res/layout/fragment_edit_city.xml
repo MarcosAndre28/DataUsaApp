@@ -3,100 +3,98 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:padding="8dp"
-    tools:context=".edit.EditStatesFragment"
-    android:layout_height="match_parent">
+    tools:context=".edit.EditStatesFragment">
 
 
     <TextView
-        android:id="@+id/edit_nomeCity"
-        android:layout_width="229dp"
+        android:id="@+id/textview_Nome_State"
+        android:layout_width="0dp"
         android:layout_height="24dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="89dp"
         android:gravity="center"
-        android:textColor="@color/Titulo"
+        android:textColor="@color/title"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/id_edit"
+        android:id="@+id/edit_ID"
         android:layout_width="200dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="24dp"
         android:background="@drawable/edit_shaper"
         android:padding="5dp"
-        android:textColorHint="@color/HintText"
-        app:layout_constraintStart_toEndOf="@+id/id_textView"
-        app:layout_constraintTop_toTopOf="@+id/id_textView" />
+        android:textColorHint="@color/hintText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_Nome_State" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Ano"
-        android:textColor="@color/Nomescidades"
-        android:textSize="20dp"
+        android:text="@string/year"
+        android:textColor="@color/nameStates"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/edit_Year"
         app:layout_constraintStart_toStartOf="@+id/estado_textView"
-        app:layout_constraintTop_toBottomOf="@+id/estado_textView" />
+        app:layout_constraintTop_toTopOf="@+id/edit_Year" />
 
     <EditText
-        android:id="@+id/edit_Ano"
+        android:id="@+id/edit_Year"
         android:layout_width="200dp"
         android:layout_height="36dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/edit_shaper"
         android:ems="10"
         android:inputType="textPersonName"
         android:padding="5dp"
-        android:textColorHint="@color/HintText"
-        app:layout_constraintEnd_toEndOf="@+id/edit_estado"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/edit_estado" />
+        android:textColorHint="@color/hintText"
+        app:layout_constraintEnd_toEndOf="@+id/edit_State"
+        app:layout_constraintTop_toBottomOf="@+id/edit_State" />
 
     <EditText
         android:id="@+id/edit_slug"
         android:layout_width="200dp"
         android:layout_height="36dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/edit_shaper"
         android:ems="10"
         android:inputType="textPersonName"
         android:padding="5dp"
-        android:textColorHint="@color/HintText"
+        android:textColorHint="@color/hintText"
         app:layout_constraintEnd_toEndOf="@+id/edit_Population"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/edit_Population" />
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="24dp"
-        android:text="Slug"
-        android:textColor="@color/Nomescidades"
-        android:textSize="20dp"
+        android:text="@string/slug"
+        android:textColor="@color/nameStates"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/edit_slug"
         app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toTopOf="@+id/edit_slug" />
 
     <TextView
         android:id="@+id/estado_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Estado"
-        android:textColor="@color/Nomescidades"
-        android:textColorHint="@color/HintText"
-        android:textSize="20dp"
+        android:text="@string/state"
+        android:textColor="@color/nameStates"
+        android:textColorHint="@color/hintText"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/edit_State"
         app:layout_constraintStart_toStartOf="@+id/id_textView"
-        app:layout_constraintTop_toBottomOf="@+id/id_textView" />
+        app:layout_constraintTop_toTopOf="@+id/edit_State" />
 
     <EditText
         android:id="@+id/edit_Population"
@@ -107,55 +105,52 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:padding="5dp"
-        android:textColorHint="@color/HintText"
-        app:layout_constraintEnd_toEndOf="@+id/edit_Ano"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/edit_Ano" />
+        android:textColorHint="@color/hintText"
+        app:layout_constraintEnd_toEndOf="@+id/edit_Year"
+        app:layout_constraintTop_toBottomOf="@+id/edit_Year" />
 
     <TextView
         android:id="@+id/id_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="80dp"
-        android:text="ID"
-        android:textColor="@color/Nomescidades"
-        android:textSize="20dp"
+        android:layout_marginStart="38dp"
+        android:text="@string/id"
+        android:textColor="@color/nameStates"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/edit_ID"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_nomeCity" />
+        app:layout_constraintTop_toTopOf="@+id/edit_ID"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="População"
-        android:textColor="@color/Nomescidades"
-        android:textSize="20dp"
+        android:text="@string/populationTextView"
+        android:textColor="@color/nameStates"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/edit_Population"
         app:layout_constraintStart_toStartOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toTopOf="@+id/edit_Population" />
 
     <EditText
-        android:id="@+id/edit_estado"
+        android:id="@+id/edit_State"
         android:layout_width="200dp"
         android:layout_height="36dp"
-        android:layout_marginStart="108dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/edit_shaper"
         android:padding="5dp"
-        android:textColorHint="@color/HintText"
-        app:layout_constraintEnd_toEndOf="@+id/id_edit"
-        app:layout_constraintHorizontal_bias="0.915"
-        app:layout_constraintStart_toEndOf="@+id/estado_textView"
-        app:layout_constraintTop_toBottomOf="@+id/id_edit" />
+        android:textColorHint="@color/hintText"
+        app:layout_constraintEnd_toEndOf="@+id/edit_ID"
+        app:layout_constraintTop_toBottomOf="@+id/edit_ID" />
 
     <Button
         android:id="@+id/savedbutton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Salvar"
+        android:layout_width="333dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/button_shape"
+        android:text="@string/save"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="@+id/edit_slug"
         app:layout_constraintHorizontal_bias="0.0"

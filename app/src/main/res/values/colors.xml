@@ -7,9 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="ListaCidades">#bcbfc0</color>
-    <color name="Titulo">#31393d</color>
-    <color name="HintText">#d5d8d9</color>
-    <color name="LineShape">#c6cacd</color>
-    <color name="Nomescidades">#3e4244</color>
+    <color name="listaCidades">#bcbfc0</color>
+    <color name="title">#31393d</color>
+    <color name="hintText">#d5d8d9</color>
+    <color name="lineShape">#c6cacd</color>
+    <color name="nameStates">#3e4244</color>
+    <color name="background">#6558F5</color>
 </resources>

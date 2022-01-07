@@ -2,6 +2,7 @@ package com.example.datausaapp.data.model
 
 import com.google.gson.annotations.SerializedName
 
+// Atributos da Api
 data class State(
 
     @SerializedName("ID State")
@@ -13,5 +14,5 @@ data class State(
     @SerializedName("State")
     var state: String,
     @SerializedName("Year")
-    var year: String
+    var year: Int
 )

@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         setFragmentCity()
     }
+
     private fun setFragmentCity() {
         supportFragmentManager.beginTransaction().replace(R.id.container, StatesFragment()).commit()
     }

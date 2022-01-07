@@ -34,13 +34,13 @@ class EditStatesFragment(private val state: State, private val onSavedState: (St
         setListeners(view)
         return view
     }
-
+  //Carregamento dos dados State
     private fun loadingStateData(view: View) {
 
-        editName = view.edit_nomeCity
-        editID = view.id_edit
-        editState = view.edit_estado
-        editYear = view.edit_Ano
+        editName = view.textview_Nome_State
+        editID = view.edit_ID
+        editState = view.edit_State
+        editYear = view.edit_Year
         editPopulation = view.edit_Population
         editSlug = view.edit_slug
 
@@ -48,44 +48,54 @@ class EditStatesFragment(private val state: State, private val onSavedState: (St
         editID.isEnabled = false
         editID.setText(state.stateId)
         editState.setText(state.state)
-        editYear.setText(state.year)
+        editYear.setText(state.year.toString())
         editPopulation.setText(state.population.toString())
         editSlug.setText(state.slugState)
 
     }
-
+    // Click na lista de States e tratamento da exception
     private fun setListeners(view: View) {
 
         view.savedbutton.setOnClickListener {
 
-            if (fieldValidate()){
+            if (fieldValidate()) {
                 try {
                     onSavedState(createNewState())
+                    //retornando para o fragment anterior
                     activity?.supportFragmentManager?.popBackStack()
 
-                }catch (e: Exception){
-                    Toast.makeText(requireContext(),"População e ano devem ser inteiros",Toast.LENGTH_SHORT).show()
+                } catch (e: Exception) {
+                    Toast.makeText(
+                        requireContext(),
+                        "População e ano devem ser inteiros",
+                        Toast.LENGTH_SHORT
+                    ).show()
 
                 }
 
-            }else{
-                Toast.makeText(requireContext(),"Todos os campos devem ser preenchidos", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(
+                    requireContext(),
+                    "Todos os campos devem ser preenchidos",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
 
         }
     }
-
+    //Criando um novo estado
     private fun createNewState(): State {
 
         return state.copy(
-                state = editState.text.toString(),
-                population = editPopulation.text.toString().toInt()
+            state = editState.text.toString(),
+            population = editPopulation.text.toString().toInt(),
+            slugState = editSlug.text.toString(),
+            year = editYear.text.toString().toInt()
 
         )
-
-
     }
-    private fun fieldValidate(): Boolean{
+    //Validando os campos
+    private fun fieldValidate(): Boolean {
         return !(editState.text.isNullOrBlank() || editPopulation.text.isNullOrBlank() ||
                 editSlug.text.isNullOrBlank() || editYear.text.isNullOrBlank())
     }

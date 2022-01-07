@@ -19,7 +19,8 @@ class StatesFragment : Fragment() {
 
     private lateinit var viewModel: FragmentStateViewModel.RecipeDetailsViewModel
     private var getApiInstance = ApiClientInstance.retrofitInstance
-    private var repositorya = StateRepository(getApiInstance)
+    private var repository = StateRepository(getApiInstance)
+   // fazendo a transição de um fragmento para o outro
     private var cityAdapter = StatesAdapter {
         activity?.supportFragmentManager?.beginTransaction()
             ?.replace(R.id.container, EditStatesFragment(it) {
@@ -30,7 +31,7 @@ class StatesFragment : Fragment() {
     }
     lateinit var ctCv: RecyclerView
 
-
+    //Chamando o Id da recycler
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         ctCv = view.findViewById(R.id.rv_citys)
@@ -39,7 +40,7 @@ class StatesFragment : Fragment() {
         setRecyclerView()
 
 
-
+        //Observando a Activity
         viewModel.states.observe(requireActivity()) {
             cityAdapter.setupRecycleView(it)
         }
@@ -54,16 +55,16 @@ class StatesFragment : Fragment() {
 
 
     }
-
+    //Chamdno o repository na viewModel
     private fun setupViewModel() {
         viewModel = ViewModelProvider(
             this,
             FragmentStateViewModel.RecipeDetailsViewModel.RecipeDetailViewModelFactory(
-                repositorya
+                repository
             )
         ).get(FragmentStateViewModel.RecipeDetailsViewModel::class.java)
     }
-
+    //Setando a ReclyclerView e p dividerItem
     private fun setRecyclerView() {
 
         val layoutManager = LinearLayoutManager(context)
